@@ -1,11 +1,5 @@
 #include "sort.h"
 
-int find_max(int *array, size_t size);
-int *allocate_count_array(int max);
-void populate_count_array(int *count, int *array, size_t size, int max);
-void print_counting_array(int *count, int max);
-void build_sorted_array(int *array, int *sorted, int *count, size_t size);
-
 /**
  * counting_sort - Sorts array - integers - counting sort algorithm.
  * @array: The array to be sorted.
