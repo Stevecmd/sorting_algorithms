@@ -2,7 +2,7 @@
 
 /**
  * find_max - Get the maximum value in an array of integers.
- * @array: An array of integers.
+ * @arr: An array of integers.
  * @size: The size of the array.
  *
  * Description:
@@ -30,7 +30,7 @@ int find_max(int *arr, int size)
 /**
  * counting_sort - Sort an array of integers in ascending order
  *                 using the counting sort algorithm.
- * @array: An array of integers.
+ * @arr: An array of integers.
  * @size: The size of the array.
  *
  * Description:
@@ -38,11 +38,14 @@ int find_max(int *arr, int size)
  * counting sort algorithm. It first checks if the array is NULL or if its size
  * is less than 2, in which case it returns immediately. It then dynamically
  * allocates memory for the 'sorted' array and checks for allocation failure.
- * Next, it calculates the maximum value in the array using the find_max function
- * and allocates memory for the counting array 'count'. If the allocation fails,
- * it frees the memory allocated for 'sorted' and returns. The function initializes
- * the counting array to store the frequencies of each element in the array, then
- * computes the cumulative frequencies. It prints the counting array and proceeds
+ * Next, it calculates the maximum value in the array
+ * using the find_max function and allocates memory for
+ * the counting array 'count'. If the allocation fails,
+ * it frees the memory allocated for 'sorted' and returns.
+ * The function initializes
+ * the counting array to store the frequencies of each
+ * element in the array, then computes the cumulative frequencies.
+ * It prints the counting array and proceeds
  * to rearrange the elements in the 'sorted' array based on the counting array.
  * Finally, it updates the original array with the sorted elements, frees the
  * allocated memory for 'sorted' and 'count', and returns.
