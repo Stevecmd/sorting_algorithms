@@ -48,15 +48,12 @@ void swap_node_ahead(listint_t **list, listint_t **tail, listint_t **shaker);
 void swap_node_behind(listint_t **list, listint_t **tail, listint_t **shaker);
 
 /* 6. Counting sort */
-int find_max(int *array, size_t size);
-int *allocate_count_array(int max);
-void populate_count_array(int *count, int *array, size_t size, int max);
-void print_counting_array(int *count, int max);
-void build_sorted_array(int *array, int *sorted, int *count, size_t size);
+int find_max(int *array, int size);
 void counting_sort(int *array, size_t size);
 
 /* 7. Merge sort */
 void merge_sort(int *array, size_t size);
+void counting_sort(int *arr, size_t size);
 
 /* 8. Heap sort */
 void heap_sort(int *array, size_t size);
