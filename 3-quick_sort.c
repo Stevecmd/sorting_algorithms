@@ -1,10 +1,5 @@
 #include "sort.h"
 
-void swap_ints(int *a, int *b);
-int lomuto_partition(int *array, size_t size, int left, int right);
-void lomuto_sort(int *array, size_t size, int left, int right);
-void quick_sort(int *array, size_t size);
-
 /**
  * swap_ints - Swap two integers in an array.
  * @a: The first integer to swap.
@@ -12,14 +7,17 @@ void quick_sort(int *array, size_t size);
  */
 void swap_ints(int *a, int *b)
 {
-	int tmp = *a;
+	int tmp;
+
+	tmp = *a;
 	*a = *b;
 	*b = tmp;
 }
 
 /**
- * lomuto_partition - Lomuto partition scheme for Quick sort.
- * @array: The array to partition.
+ * lomuto_partition - Order a subset of an array of integers according to
+ *                    the lomuto partition scheme (last element as pivot).
+ * @array: The array of integers.
  * @size: The size of the array.
  * @left: The starting index of the subset to order.
  * @right: The ending index of the subset to order.
@@ -30,7 +28,6 @@ int lomuto_partition(int *array, size_t size, int left, int right)
 {
 	int *pivot = array + right;
 	int above, below;
-	size_t i;
 
 	for (above = below = left; below < right; below++)
 	{
@@ -39,14 +36,7 @@ int lomuto_partition(int *array, size_t size, int left, int right)
 			if (above < below)
 			{
 				swap_ints(array + below, array + above);
-				printf("Swap: ");
-				for (i = 0; i < size; i++)
-				{
-					printf("%d", array[i]);
-					if (i != size - 1)
-						printf(", ");
-				}
-				printf("\n");
+				print_array(array, size);
 			}
 			above++;
 		}
@@ -55,14 +45,7 @@ int lomuto_partition(int *array, size_t size, int left, int right)
 	if (array[above] > *pivot)
 	{
 		swap_ints(array + above, pivot);
-		printf("Swap: ");
-		for (i = 0; i < size; i++)
-		{
-			printf("%d", array[i]);
-			if (i != size - 1)
-				printf(", ");
-		}
-		printf("\n");
+		print_array(array, size);
 	}
 
 	return (above);
