@@ -40,7 +40,6 @@ void merge(int *array, int left, int mid, int right, int *temp)
 
 	printf("[Done]: ");
 	print_array(array + left, k);
-	printf("\n");
 }
 
 /**
