@@ -1,5 +1,11 @@
 #include "sort.h"
 
+
+void swap_ints(int *a, int *b);
+size_t lomuto_partition(int *array, ssize_t low, ssize_t high, size_t size);
+void quicksort_recursive(int *array, ssize_t low, ssize_t high, size_t size);
+void quick_sort(int *array, size_t size);
+
 /**
  * swap_ints - Swap two integers in an array.
  * @a: The first integer to swap.
@@ -54,6 +60,11 @@ void quicksort_recursive(int *array, ssize_t low, ssize_t high, size_t size)
 	{
 		size_t pi = lomuto_partition(array, low, high, size);
 
+		if (pi != (size_t)high)
+		{
+			print_array(array, size);
+		}
+
 		quicksort_recursive(array, low, pi - 1, size);
 		quicksort_recursive(array, pi + 1, high, size);
 	}
@@ -73,4 +84,5 @@ void quick_sort(int *array, size_t size)
 		return;
 
 	quicksort_recursive(array, 0, size - 1, size);
+	print_array(array, size);
 }
