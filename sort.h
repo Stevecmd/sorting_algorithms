@@ -41,7 +41,6 @@ void quick_sort(int *array, size_t size);
 
 /* 4. Shell sort - Knuth Sequence  */
 void shell_sort(int *array, size_t size);
-int shell_sort_main(void);
 
 /* 5. Cocktail shaker sort  */
 void cocktail_sort_list(listint_t **list);

@@ -1,6 +1,18 @@
 #include "sort.h"
 
 /**
+ * swap_ints - Swap two integers in an array.
+ * @a: The first integer to swap.
+ * @b: The second integer to swap.
+ */
+void swap_ints(int *a, int *b)
+{
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+
+/**
  * shell_sort - Sorts an array of integers in ascending order
  *				using the Shell sort algorithm.
  * @array: The array to be sorted.
@@ -10,70 +22,30 @@
  */
 void shell_sort(int *array, size_t size)
 {
-	size_t interval = 1, i, j;
-	int temp;
+	size_t gap, current_index, compare_index;
 
-	while (interval <= size / 3)
-		interval = interval * 3 + 1;
+	if (array == NULL || size < 2)
+		return;
 
-	while (interval > 0)
+	/* Calculate initial gap using Knuth sequence */
+	for (gap = 1; gap < (size / 3);)
+		gap = gap * 3 + 1;
+
+	/* Iterate over decreasing gaps */
+	for (; gap >= 1; gap /= 3)
 	{
-		for (i = 0; i < size; i++)
+		/* Perform insertion sort for each gap */
+		for (current_index = gap; current_index < size; current_index++)
 		{
-			printf("%d", array[i]);
-			if (i != size - 1)
-				printf(", ");
-		}
-		printf("\n");
-
-		for (i = interval; i < size; i++)
-		{
-			temp = array[i];
-			j = i;
-
-			while (j >= interval && array[j - interval] > temp)
+			/* Perform insertion sort for elements at current_index */
+			compare_index = current_index;
+			while (compare_index >= gap && array[compare_index - gap] > array[compare_index])
 			{
-				array[j] = array[j - interval];
-				j -= interval;
+				swap_ints(array + compare_index, array + (compare_index - gap));
+				compare_index -= gap;
 			}
-
-			array[j] = temp;
 		}
-
-		interval = (interval - 1) / 3;
+		/* Print array after each gap reduction */
+		print_array(array, size);
 	}
-
-	for (i = 0; i < size; i++)
-	{
-		printf("%d", array[i]);
-		if (i != size - 1)
-			printf(", ");
-	}
-	printf("\n");
-}
-
-/**
- * shell_sort_main - Main function to test the shell_sort function.
- *
- * Return: Always returns 0.
- */
-int shell_sort_main(void)
-{
-	int array[] = {8, 3, 5, 1, 2, 7, 4, 6};
-	size_t size = sizeof(array) / sizeof(array[0]);
-
-	size_t i;
-
-	printf("Original array: ");
-	for (i = 0; i < size; i++)
-	{
-		printf("%d", array[i]);
-		if (i != size - 1)
-			printf(", ");
-	}
-	printf("\n");
-
-	shell_sort(array, size);
-
-	return (0);
 }
