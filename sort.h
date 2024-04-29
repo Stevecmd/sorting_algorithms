@@ -19,7 +19,6 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
-
 /* Protoypes */
 /* 0. Bubble sort */
 void bubble_sort(int *array, size_t size);
@@ -35,6 +34,8 @@ void swap_ints(int *a, int *b);
 void selection_sort(int *array, size_t size);
 
 /* 3. Quick sort  */
+size_t lomuto_partition(int *array, ssize_t low, ssize_t high, size_t size);
+void quicksort_recursive(int *array, ssize_t low, ssize_t high, size_t size);
 void quick_sort(int *array, size_t size);
 
 
