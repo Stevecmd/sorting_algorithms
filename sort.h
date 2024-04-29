@@ -35,10 +35,9 @@ void selection_sort(int *array, size_t size);
 
 /* 3. Quick sort  */
 void swap_ints(int *a, int *b);
-size_t lomuto_partition(int *array, ssize_t low, ssize_t high, size_t size);
-void quicksort_recursive(int *array, ssize_t low, ssize_t high, size_t size);
+int lomuto_partition(int *array, size_t size, int left, int right);
+void lomuto_sort(int *array, size_t size, int left, int right);
 void quick_sort(int *array, size_t size);
-
 
 /* 4. Shell sort - Knuth Sequence  */
 void shell_sort(int *array, size_t size);
