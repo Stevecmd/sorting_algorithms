@@ -33,27 +33,31 @@ void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 
 
+/* 4. Shell sort - Knuth Sequence  */
+void shell_sort(int *array, size_t size);
 
+/* 5. Cocktail shaker sort  */
+void cocktail_sort_list(listint_t **list);
 
+/* 6. Counting sort */
+void counting_sort(int *array, size_t size);
 
+/* 7. Merge sort */
+void merge_sort(int *array, size_t size);
 
+/* 8. Heap sort */
+void heap_sort(int *array, size_t size);
 
+/* 9. Radix sort */
+void radix_sort(int *array, size_t size);
 
+/* 10. Bitonic sort */
+void bitonic_sort(int *array, size_t size);
 
+/* 11. Quick Sort - Hoare Partition scheme */
+void quick_sort_hoare(int *array, size_t size);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* 12. Dealer */
+void sort_deck(deck_node_t **deck);
 
 #endif /* SORT_H */
