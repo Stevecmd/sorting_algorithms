@@ -52,8 +52,9 @@ int find_max(int *array, int size);
 void counting_sort(int *array, size_t size);
 
 /* 7. Merge sort */
+void merge(int *array, int left, int mid, int right, int *temp);
+void merge_sort_recursive(int *array, int left, int right, int *temp);
 void merge_sort(int *array, size_t size);
-void counting_sort(int *arr, size_t size);
 
 /* 8. Heap sort */
 void heap_sort(int *array, size_t size);
