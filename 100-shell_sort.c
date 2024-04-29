@@ -7,9 +7,9 @@
  */
 void swap_ints(int *a, int *b)
 {
-    int tmp = *a;
-    *a = *b;
-    *b = tmp;
+	int tmp = *a;
+	*a = *b;
+	*b = tmp;
 }
 
 /**
@@ -39,7 +39,8 @@ void shell_sort(int *array, size_t size)
 		{
 			/* Perform insertion sort for elements at current_index */
 			compare_index = current_index;
-			while (compare_index >= gap && array[compare_index - gap] > array[compare_index])
+			while (compare_index >= gap &&
+					array[compare_index - gap] > array[compare_index])
 			{
 				swap_ints(array + compare_index, array + (compare_index - gap));
 				compare_index -= gap;
