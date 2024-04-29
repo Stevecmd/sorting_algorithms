@@ -1,10 +1,5 @@
 #include "sort.h"
 
-void swap_ints(int *a, int *b);
-int lomuto_partition(int *array, ssize_t low, ssize_t high, size_t size);
-void quicksort_recursive(int *array, ssize_t low, ssize_t high, size_t size);
-void quick_sort(int *array, size_t size);
-
 /**
  * swap_ints - Swap two integers in an array.
  * @a: The first integer to swap.
@@ -26,7 +21,7 @@ void swap_ints(int *a, int *b)
  *
  * Return: The partition index.
  */
-int lomuto_partition(int *array, ssize_t low, ssize_t high, size_t size)
+size_t lomuto_partition(int *array, ssize_t low, ssize_t high, size_t size)
 {
 	int pivot = array[high];
 	ssize_t i = low - 1;
@@ -57,9 +52,13 @@ void quicksort_recursive(int *array, ssize_t low, ssize_t high, size_t size)
 {
 	if (low < high)
 	{
-		int pi = lomuto_partition(array, low, high, size);
+		size_t pi = lomuto_partition(array, low, high, size);
 
-		print_array(array, size);
+		if (pi != (size_t)high)
+		{
+			print_array(array, size);
+		}
+
 		quicksort_recursive(array, low, pi - 1, size);
 		quicksort_recursive(array, pi + 1, high, size);
 	}
