@@ -1,7 +1,5 @@
 #include "sort.h"
 
-void print_array(int *array, size_t size);
-
 /**
  * swap_ints - Swap two integers in an array.
  * @a: The first integer to swap.
