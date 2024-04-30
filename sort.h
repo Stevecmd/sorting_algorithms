@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <stddef.h>
 
 /**
  * struct listint_s - Doubly linked list node
@@ -58,6 +59,7 @@ void merge_sort(int *array, size_t size);
 
 /* 8. Heap sort */
 void heap_sort(int *array, size_t size);
+void swap_ints(int *a, int *b);
 
 /* 9. Radix sort */
 void radix_sort(int *array, size_t size);
