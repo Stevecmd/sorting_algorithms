@@ -3,14 +3,6 @@
 void merge(int *array, int left, int mid, int right, int *temp);
 void merge_sort_recursive(int *array, int left, int right, int *temp);
 
-/**
- * merge - Merges two subarrays of array[].
- * @array: The array to be sorted.
- * @left: Index of the left subarray.
- * @mid: Index of the middle element.
- * @right: Index of the right subarray.
- * @temp: Temporary array to store merged subarrays.
- */
 void merge(int *array, int left, int mid, int right, int *temp)
 {
 	int i = left, j = mid + 1, k = 0;
@@ -42,13 +34,6 @@ void merge(int *array, int left, int mid, int right, int *temp)
 	print_array(array + left, k);
 }
 
-/**
- * merge_sort_recursive - Recursive function to perform merge sort.
- * @array: The array to be sorted.
- * @left: Index of the leftmost element.
- * @right: Index of the rightmost element.
- * @temp: Temporary array to store merged subarrays.
- */
 void merge_sort_recursive(int *array, int left, int right, int *temp)
 {
 	if (left < right)
@@ -61,26 +46,18 @@ void merge_sort_recursive(int *array, int left, int right, int *temp)
 	}
 }
 
-/**
- * merge_sort - Sorts an array of integers in ascending order using
- *              the Merge sort algorithm.
- * @array: The array to be sorted.
- * @size: The size of the array.
- */
 void merge_sort(int *array, size_t size)
 {
 	int *temp = malloc(sizeof(int) * size);
 
-	if (temp == NULL)
-		return;
-
-	if (array == NULL || size < 2)
+	if (temp != NULL && array != NULL && size >= 2)
 	{
-		free(temp);
-		return;
+		printf("\n");
+		merge_sort_recursive(array, 0, size - 1, temp);
 	}
 
-	printf("\n");
-	merge_sort_recursive(array, 0, size - 1, temp);
-	free(temp);
+	if (temp != NULL)
+	{
+		free(temp);
+	}
 }
