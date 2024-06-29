@@ -57,13 +57,13 @@ void heap_sort(int *array, size_t size)
 		return;
 
 	/* Build max heap */
-	for (i = size / 2 - 1; i != 0; i--)
+	for (i = size / 2; i > 0; i--)
 	{
-		sift_down(array, size, i, size);
+		sift_down(array, size, i - 1, size);
 	}
 
 	/* Perform heap sort */
-	for (i = size - 1; i != 0; i--)
+	for (i = size - 1; i > 0; i--)
 	{
 		swap_ints(&array[0], &array[i]);
 		print_array(array, size);
