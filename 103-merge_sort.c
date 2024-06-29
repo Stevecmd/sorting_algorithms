@@ -53,10 +53,6 @@ void merge_sort_recursive(int *array, int left, int right, int *temp)
 {
 	if (left < right)
 	{
-		/*
-		* Adjusting the calculation of mid to ensure
-		* the left array size <= right array size
-		*/
 		int mid = left + (right - left) / 2;
 
 		merge_sort_recursive(array, left, mid, temp);
@@ -73,15 +69,14 @@ void merge_sort_recursive(int *array, int left, int right, int *temp)
  */
 void merge_sort(int *array, size_t size)
 {
+	if (array == NULL || size < 2)
+		return;
+
 	int *temp = malloc(sizeof(int) * size);
 
-	if (temp != NULL && array != NULL && size > 1)
+	if (temp != NULL)
 	{
 		merge_sort_recursive(array, 0, size - 1, temp);
-		free(temp);
-	}
-	else if (temp != NULL)
-	{
 		free(temp);
 	}
 }
